@@ -16,7 +16,7 @@
           <h2>John Doe</h2>
         </div>
       </div>
-      <!-- /menu profile quick info -->
+
 
       <br />
 

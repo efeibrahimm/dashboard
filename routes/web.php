@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::prefix('/admin')->middleware('isLogin')->group(function(){
 Route::prefix('/admin')->middleware('isAdmin')->group(function(){
     Route::get('/dashboard', [loginController::class, "index"])->name("dashboard");
     Route::get('/logout',[loginController::class,"logout"])->name("logout");
+    Route::get('/general-settings',[GeneralSettingController::class,"index"])->name("admin.general-settings");
+    Route::post('/general-settings',[GeneralSettingController::class,"update"])->name("admin.general-settings-update");
 });

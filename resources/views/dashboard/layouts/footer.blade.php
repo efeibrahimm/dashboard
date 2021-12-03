@@ -8,9 +8,9 @@
           <!-- /footer content -->
         </div>
       </div>
-
       <!-- jQuery -->
       <script src="{{asset('dashboard/vendors/jquery/dist/jquery.min.js')}}"></script>
+      <script src="{{ resource_path('js\app.js') }}"></script>
       <!-- Bootstrap -->
       <script src="{{asset('dashboard/vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
       <!-- FastClick -->
@@ -27,6 +27,7 @@
       <script src="{{asset('dashboard/vendors/iCheck/icheck.min.js')}}"></script>
       <!-- Skycons -->
       <script src="{{asset('dashboard/vendors/skycons/skycons.js')}}"></script>
+      <script src="{{asset('dashboard/vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
       <!-- Flot -->
       <script src="{{asset('dashboard/vendors/Flot/jquery.flot.js')}}"></script>
       <script src="{{asset('dashboard/vendors/Flot/jquery.flot.pie.js')}}"></script>
@@ -39,6 +40,7 @@
       <script src="{{asset('dashboard/vendors/flot.curvedlines/curvedLines.js')}}"></script>
       <!-- DateJS -->
       <script src="{{asset('dashboard/vendors/DateJS/build/date.js')}}"></script>
+      <script src="{{asset('dashboard/vendors/switchery/dist/switchery.min.js')}}"></script>
       <!-- JQVMap -->
       <script src="{{asset('dashboard/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
       <script src="{{asset('dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>

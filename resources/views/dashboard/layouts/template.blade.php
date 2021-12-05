@@ -6,4 +6,5 @@
 
 
 
+@stack('scripts')
 @include('dashboard.layouts.footer')

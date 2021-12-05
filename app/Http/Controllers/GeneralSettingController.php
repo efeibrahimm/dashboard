@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class GeneralSettingController extends Controller
 {
     public function index(){
+
+        return view('dashboard.general_settings');
+    }
+    public function data(){
         $settings = GeneralSetting::find(1);
         $data = [
             "title" => "General Settings",
@@ -17,7 +21,7 @@ class GeneralSettingController extends Controller
             "favicon" =>$settings->favicon,
             "auth" =>$settings->auth
         ];
-        return view('dashboard.general_settings',$data);
+        return $data;
     }
     public function update(Request $request){
 

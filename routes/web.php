@@ -37,4 +37,6 @@ Route::prefix('/admin')->middleware('isAdmin')->group(function(){
     //Blogs
     Route::get('/blogs',[BlogController::class,'index'])->name('admin.blogs');
     Route::any('/blog-data',[BlogController::class,'data'])->name('admin.blog-data');
+    Route::post('/create-blog',[BlogController::class,'createBlog'])->name('admin.create-blog');
+    Route::delete('/delete-blog/{id}',[BlogController::class,'deleteBlog'])->name('admin.delete-blog');
 });

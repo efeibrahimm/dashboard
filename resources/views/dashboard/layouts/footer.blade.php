@@ -10,6 +10,9 @@
           <!-- /footer content -->
         </div>
       </div>
+      <script>
+         CKEDITOR.replace( 'editor' );
+      </script>
       <!-- jQuery -->
       <script src="{{asset('dashboard/vendors/jquery/dist/jquery.min.js')}}"></script>
       <!-- Bootstrap -->
@@ -50,7 +53,7 @@
       <script src="{{asset('dashboard/vendors/moment/min/moment.min.js')}}"></script>
       <script src="{{asset('dashboard/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-       <!-- Datatables -->
+        <!-- Datatables -->
         <script src="{{asset('dashboard/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('dashboard/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
         <script src="{{asset('dashboard/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
@@ -66,8 +69,11 @@
         <script src="{{asset('dashboard/vendors/jszip/dist/jszip.min.js')}}"></script>
         <script src="{{asset('dashboard/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
         <script src="{{asset('dashboard/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-      <!-- Custom Theme Scripts -->
-      <script src="{{asset('dashboard/build/js/custom.min.js')}}"></script>
+
+        <script src="{{asset('dashboard/vendors/echarts/dist/echarts.min.js')}}"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="{{asset('dashboard/build/js/custom.min.js')}}"></script>
 
     </body>
   </html>

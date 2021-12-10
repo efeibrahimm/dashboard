@@ -89,7 +89,7 @@
                                                         <td>
                                                             <a class="text-danger" style="cursor: pointer" @click="deleteBlog(blog.id)"><i
                                                                     class="fa fa-trash fa-9x"></i></a>
-                                                            <a class="text-success" @clikc="editBlog(blog.id)"><i
+                                                            <a class="text-success" @click="editBlog(blog)"><i
                                                                     class="fa fa-edit fa-9x"></i></a>
                                                             <a class="text-success" @clikc="editBlog(blog.id)"><i
                                                                     class="fa fa-eye fa-9x"></i></a>
@@ -250,7 +250,11 @@
                         console.log(error);
                         alert('İşlem Başarısız');
                     })
-                }
+                },
+                editBlog : function(blog){
+                this.blog = blog;
+
+               }
 
             },
             created() {

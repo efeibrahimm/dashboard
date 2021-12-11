@@ -71,7 +71,7 @@
                                     <div class="col-sm-12">
                                         <div class="card-box table-responsive">
                                             <button class="btn-sm btn-primary btn" style="float: right" data-toggle="modal"
-                                                data-target=".bs-example-modal-lg">Blog Ekle</button>
+                                                data-target="#hizmetTeklifleriModal">Blog Ekle</button>
                                             <table id="datatable" class="table table-striped table-bordered"
                                                 style="width:100%">
                                                 <thead>
@@ -87,7 +87,8 @@
                                                 <tbody>
                                                     <tr v-for="blog in blogs">
                                                         <td>
-                                                            <a class="text-danger" style="cursor: pointer" @click="deleteBlog(blog.id)"><i
+                                                            <a class="text-danger" style="cursor: pointer"
+                                                                @click="deleteBlog(blog.id)"><i
                                                                     class="fa fa-trash fa-9x"></i></a>
                                                             <a class="text-success" @click="editBlog(blog)"><i
                                                                     class="fa fa-edit fa-9x"></i></a>
@@ -114,19 +115,21 @@
             </div>
             {{-- blog content start --}}
 
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade bs-example-modal-lg" id="hizmetTeklifleriModal" tabindex="-1" role="dialog"
+                aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <form class="form-horizontal form-label-left" @submit.prevent="save()"                                 enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" @submit.prevent="save()"
+                            enctype="multipart/form-data">
 
 
-                        <div class="modal-header bg-primary bg-color">
-                            <h4 class="modal-title text-light" id="myModalLabel">Blog</h4>
-                            <button type="button" class="close" data-dismiss="modal"><span
-                                    aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+                            <div class="modal-header bg-primary bg-color">
+                                <h4 class="modal-title text-light" id="myModalLabel">Blog</h4>
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
                                 <div class="control-group row mb-3">
                                     <label class="control-label col-md-12">Image</label>
                                     <div class="col-md-12 col-sm-9 ">
@@ -162,13 +165,14 @@
 
 
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="reset" class="btn btn-primary">Reset Form</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" ref="Close" data-dismiss="modal"
+                                    id="close12">Close</button>
+                                <button type="reset" class="btn btn-primary">Reset Form</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -214,6 +218,9 @@
                 answerFilesChange2: function(e) {
                     this.$set(this.blog, 'loadImage', e.target.files[0]);
                 },
+                closeModal: function() {
+
+                },
 
                 save: function() {
                     var postData = new FormData();
@@ -228,33 +235,34 @@
                     console.log(this.blog.loadImage.name);
                     axios.post('{{ url('admin/create-blog') }}', postData)
                         .then(function(sr) {
-                            alert('Kayıt Başarılı');
+                            successMessage('Blog Başarıyla Eklendi !')
+                            this.$refs.Close.click();
                             this.getBlogs();
                         }, function(er) {
                             console.error(er.body);
-                            alert('Başarısız')
+                            errorMessage('Blog Eklenirken Hata Oluştu.')
                         })
                 },
-                deleteBlog : function(id){
+                deleteBlog: function(id) {
                     var kontrol = confirm("Silmek İstediğinize Emin misiniz!");
                     if (!kontrol) {
                         return;
                     }
 
-                    axios.delete('{{url("admin/delete-blog")}}/'+id)
-                    .then(response =>{
-                        alert("Silme işlemi başarılı");
-                        this.getBlogs();
-                    })
-                    .catch(error =>{
-                        console.log(error);
-                        alert('İşlem Başarısız');
-                    })
+                    axios.delete('{{ url('admin/delete-blog') }}/' + id)
+                        .then(response => {
+                            successMessage('Blog Başarıyla Silindi !')
+                            this.getBlogs();
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            successMessage('Blog Silinirken Hata Oluştu !')
+                        })
                 },
-                editBlog : function(blog){
-                this.blog = blog;
+                editBlog: function(blog) {
+                    this.blog = blog;
 
-               }
+                }
 
             },
             created() {

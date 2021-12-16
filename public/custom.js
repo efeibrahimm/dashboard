@@ -1,6 +1,6 @@
 const successMessage = function(title) {
     window.Swal.fire({
-        title: 'Success!',
+        title: 'Başarılı !',
         text: title,
         icon: 'success',
         confirmButtonText: 'Ok'
@@ -8,7 +8,7 @@ const successMessage = function(title) {
 }
 const errorMessage = function(title) {
     window.Swal.fire({
-        title: 'Error!',
+        title: 'Hata !',
         text: title,
         icon: 'error',
         confirmButtonText: 'Ok'

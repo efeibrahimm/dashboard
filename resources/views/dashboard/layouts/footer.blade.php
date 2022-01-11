@@ -3,7 +3,7 @@
       <!-- footer content -->
         <footer>
             <div class="pull-right">
-              Gentelella - Bootstrap Admin Template by
+
             </div>
             <div class="clearfix"></div>
           </footer>
